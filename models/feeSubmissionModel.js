@@ -2,13 +2,11 @@ import mongoose from "mongoose";
 
 
 const feeSubmissionSchema = mongoose.Schema({
-    
     student: {
-        type: String, 
+        type: mongoose.Schema.Types.ObjectId,
         ref: 'Student', 
         required: true
-    },
-    
+    },    
     submitted_Fees: {
         type: Number,
         required: true,

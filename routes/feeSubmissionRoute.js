@@ -17,7 +17,7 @@ router.post("/", async (request, response) => {
 // Route to get all fee submissions
 router.get("/", async (request, response) => {
     try {
-        const feeSubmissions = await FeeSubmission.find();
+        const feeSubmissions = await FeeSubmission.find().populate('student');
         response.status(200).json(feeSubmissions);
     } catch (error) {
         console.error(error);

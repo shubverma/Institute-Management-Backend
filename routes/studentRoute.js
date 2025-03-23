@@ -40,7 +40,7 @@ router.post('/', async (request, response) => {
 
         // Create enrollment
         const enrollment = await Enrollment.create({
-            student: student._id, 
+            student: student.id, 
             course,
             committedFees,
         });
@@ -57,7 +57,7 @@ router.post('/', async (request, response) => {
 router.get('/', async (request, response) => {
     try {
         // Find all students and populate the 'course' field with the entire 'Course' object
-        const students = await Student.find({}).populate('course');
+        const students = await Student.find().populate('course');
         
         return response.status(200).json({
             count: students.length,
