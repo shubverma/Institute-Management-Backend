@@ -12,7 +12,7 @@ export const createFeeSubmission = async (request, response) => {
 
 export const getAllFeeSubmissions = async (request, response) => {
     try {
-        const feeSubmissions = await FeeSubmission.find();
+        const feeSubmissions = await FeeSubmission.find().populate('student');
         response.status(200).json(feeSubmissions);
     } catch (error) {
         console.error(error);

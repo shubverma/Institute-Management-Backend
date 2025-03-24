@@ -12,7 +12,7 @@ export const createEnrollment = async (request, response) => {
 
 export const getAllEnrollments = async (request, response) => {
     try {
-        const enrollments = await Enrollment.find();
+        const enrollments = await Enrollment.find().populate('student').populate('course');
         response.status(200).json(enrollments);
     } catch (error) {
         console.error(error);
